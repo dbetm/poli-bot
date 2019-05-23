@@ -1,27 +1,175 @@
-Ya no te necesito,despedida
-Hasta luego,despedida
-Bye,espedida
-Ya me voy,despedida
-Nos vemos,despedida
-Goodbye,despedida
-Adiós,despedida
-Hasta pronto,despedida
-Hola bro,saludo
-Hola sister,saludo
-Empezar,saludo
-Hola,saludo
-Holas,saludo
-Cómo estás,saludo
-Qué onda,saludo
-Buenas tardes,saludo
-Hola amigo,saludo
-Qué puedo hacer,saludo
-Así es,neutral
-Sí,neutral
-No es lo que buscaba,neutral
-No,neutral
-Pero,neutral
-Que no,neutral
-Claro,neutral
-Por supuesto,neutral
-Por supuesto que no,neutral
+Ya no te necesito&despedida
+Hasta luego&despedida
+Bye&espedida
+Ya me voy&despedida
+Nos vemos&despedida
+Goodbye&despedida
+Adiós&despedida
+Hasta pronto&despedida
+Hola bro&saludo
+Hola sister&saludo
+Empezar&saludo
+Hola&saludo
+Holas&saludo
+Cómo estás&saludo
+Qué onda&saludo
+Buenas tardes&saludo
+Hola amigo&saludo
+Qué puedo hacer&saludo
+Así es&neutral
+Sí&neutral
+No es lo que buscaba&neutral
+No&neutral
+Pero&neutral
+Que no&neutral
+Claro&neutral
+Por supuesto&neutral
+Por supuesto que no&neutral
+Carrera de alimentos&ingenieria_en_alimentos
+Alimentos&ingenieria_en_alimentos
+Química en los alimentos&ingenieria_en_alimentos
+Alimenticio&ingenieria_en_alimentos
+Ingeniería en alimentos&ingenieria_en_alimentos
+Quiero estudiar algo relacionado con los alimentos&ingenieria_en_alimentos
+Carrera de ambiental&ingenieria_ambiental
+No quiero más cambio climático&ingenieria_ambiental
+Cuidado del planeta&ingenieria_ambiental
+Me gustan las plantas y animales&ingenieria_ambiental
+Fuentes alternativas de energía&ingenieria_ambiental
+Medio ambiente&ingenieria_ambiental
+Ecología&ingenieria_ambiental
+Biología&ingenieria_ambiental
+Ambiental&ingenieria_ambiental
+Programación móvil&Ingenieria_en_sistemas_computacionales
+Bases de datos&Ingenieria_en_sistemas_computacionales
+Android iOS windows phone&Ingenieria_en_sistemas_computacionales
+Hacking&Ingenieria_en_sistemas_computacionales
+Programación&Ingenieria_en_sistemas_computacionales
+Me gusta la electrónica&Ingenieria_en_sistemas_computacionales
+Quiero aprender redes&Ingenieria_en_sistemas_computacionales
+Quiero aprender animación&Ingenieria_en_sistemas_computacionales
+Sistemas computacionales&Ingenieria_en_sistemas_computacionales
+Sistemas&Ingenieria_en_sistemas_computacionales
+Hackear facebook&Ingenieria_en_sistemas_computacionales
+Computadora&Ingenieria_en_sistemas_computacionales
+Ingeniería en computación&Ingenieria_en_sistemas_computacionales
+ISC&Ingenieria_en_sistemas_computacionales
+Robots&Ingenieria_mecatronica
+Electromecánica&Ingenieria_mecatronica
+Quiero aprender electrónica&Ingenieria_mecatronica
+Meca&Ingenieria_mecatronica
+IoT&Ingenieria_mecatronica
+Internet de las cosas&Ingenieria_mecatronica
+Robótica&Ingenieria_mecatronica
+Mecatrónica&Ingenieria_mecatronica
+Electrónica&Ingenieria_mecatronica
+Becas&Becas
+Información sobre becas&Becas
+La beca&Becas
+Beca&Becas
+Ubicación&Contacto
+Contacto&Contacto
+¿Dónde están?&Contacto
+De Kelvin a Celsius&Convertidor_de_temperaturas
+De Kelvin a Fahrenheit&Convertidor_de_temperaturas
+De Fahrenheit a Celsius&Convertidor_de_temperaturas
+De Fahrenheit a Kelvin&Convertidor_de_temperaturas
+De Celsius a Kelvin&Convertidor_de_temperaturas
+De Celsius a Fahrenheit&Convertidor_de_temperaturas
+Qué himno tienen&Conocenos
+Cosas representativas del Poli&Conocenos
+Misión&Conocenos
+Visión&Conocenos
+Fotos&Conocenos
+Quién hizo este chatbot&Sobre_los_creadores
+Tu jefe es&Sobre_los_creadores
+Quién te programó&Sobre_los_creadores
+Quiénes te programaron&Sobre_los_creadores
+Quién es tu creador&Sobre_los_creadores
+Quiénes son tus creadores&Sobre_los_creadores
+Quién te creó&Sobre_los_creadores
+Quiénes te crearon&Sobre_los_creadores
+Quién te hizo&Sobre_los_creadores
+Quiénes te hicieron&Sobre_los_creadores
+¿Cómo derivar?&Derivadas
+Regla de la cadena&Derivadas
+Reglas de diferenciación&Derivadas
+Tabla de derivadas&Derivadas
+Derivación&Derivadas
+Fórmulas de derivadas&Derivadas
+Fórmulas para integrar&Integrales
+Fórmulas de integrales&Integrales
+Integración&Integrales
+Integrales&Integrales
+Tabla de integrales&Integrales
+¿Quién es el director de la UPIIZ?&Director
+Director general&Director
+Quién es el director de la UPIIZ&Director
+Juan Alberto&Director
+Juanito&Director
+Quién es el director de la escuela&Director
+Quién es el dire&Director
+Director&Director
+Alumnos egresados&Egresados
+Egresados&Egresados
+Logo escuela&Logo
+Logotipo&Logo
+Escudo escuela&Logo
+Logo upiiz&Logo
+Imagen institucional&Logo
+Fotos UPIIZ&Fotos
+Fotos de la unidad&Fotos
+Imágenes&Fotos
+Fotos de la escuela&Fotos
+Cómo se ve la escuela&Fotos
+Gracias poli-bot&Agradecimiento
+Muy amables&Agradecimiento
+Muchas gracias&Agradecimiento
+Thank you very much&Agradecimiento
+Thank you&Agradecimiento
+Thank u&Agradecimiento
+Gracias&Agradecimiento
+Muchísimas gracias&Agradecimiento
+Huélum&Huelum
+Soy politécnico&Huelum
+Pim pom&Huelum
+Himno&Huelum
+Porra&Huelum
+UPIIZ&Huelum
+Cachi&Huelum
+Gloria&Huelum
+Misión&Mision
+Objetivos&Vision
+Metas&Vision
+Visión&Vision
+Futuro&Vision
+Tu nombre es&Nombre
+Cómo te llamas&Nombre
+Cuál es tu nombre&Nombre
+Cuál es tu apodo&Nombre
+qué materias se ofertan&Oferta_educativa
+Oferta educativa&Oferta_educativa
+Qué carreras hay&Oferta_educativa
+¿Cuáles son los programas académicos?&Oferta_educativa
+Ingenierías&Oferta_educativa
+Carreras&Oferta_educativa
+Licenciaturas&Oferta_educativa
+¿Hay carrera de ?&Oferta_educativa
+Materiales&Recursos_educativos
+Formularios&Recursos_educativos
+Material didáctico&Recursos_educativos
+Recursos&Recursos_educativos
+Recursos para química&Tabla_periodica
+Tabla de química&Tabla_periodica
+Tabla periódica&Tabla_periodica
+Elementos químicos&Tabla_periodica
+¿Dónde encuentro información?&Sitio_web
+website&Sitio_web
+upiiz ipn&Sitio_web
+página web&Sitio_web
+sitio web&Sitio_web
+Competencias de programación&Club_de_programacion
+Programación competitiva&Club_de_programacion
+Club de programación&Club_de_programacion
+Club de algoritmia&Club_de_programacion
+Concursos de programación&Club_de_programacion

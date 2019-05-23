@@ -152,6 +152,7 @@ public class Cliente_chat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtMensajeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMensajeKeyPressed
+        
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             if(!txtMensaje.getText().isEmpty()){
                 try {

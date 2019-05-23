@@ -71,6 +71,9 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor{
                 sMenor = p.second; 
             }
         }
+        if (menor > 6)
+            sMenor="Default_intent";
+        
         System.out.println("Se eligio : "+ sMenor);
         String res = "";
         for(Intent i : this.ListaIntents){
@@ -174,7 +177,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor{
                 ArrayList<String> lista2 = new ArrayList<>();
                 String clase = "";
                 for (int i = 0; i < lista.size(); i++) {
-                    StringTokenizer st = new StringTokenizer(lista.get(i), ",");
+                    StringTokenizer st = new StringTokenizer(lista.get(i), "&");
 
                     while (st.hasMoreTokens()) {
                         lista2.add(st.nextToken());
@@ -197,10 +200,6 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor{
     public static void main(String[] args) {
         try {
             Servidor serv = new Servidor();
-            System.out.println(serv.ListaIntents.get(0).nombre);
-            for(String i : serv.ListaIntents.get(0).respuestas){
-                System.out.println(i);
-            }
             Registry reg = LocateRegistry.createRegistry(1099);
             reg.bind("servidor", serv);
             System.out.println("Servidor esta activo");
