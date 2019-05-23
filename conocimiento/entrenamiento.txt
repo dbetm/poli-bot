@@ -1,0 +1,27 @@
+Ya no te necesito,despedida
+Hasta luego,despedida
+Bye,espedida
+Ya me voy,despedida
+Nos vemos,despedida
+Goodbye,despedida
+Adiós,despedida
+Hasta pronto,despedida
+Hola bro,saludo
+Hola sister,saludo
+Empezar,saludo
+Hola,saludo
+Holas,saludo
+Cómo estás,saludo
+Qué onda,saludo
+Buenas tardes,saludo
+Hola amigo,saludo
+Qué puedo hacer,saludo
+Así es,neutral
+Sí,neutral
+No es lo que buscaba,neutral
+No,neutral
+Pero,neutral
+Que no,neutral
+Claro,neutral
+Por supuesto,neutral
+Por supuesto que no,neutral

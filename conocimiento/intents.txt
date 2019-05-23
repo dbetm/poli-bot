@@ -1,0 +1,5 @@
+despedida&Nos vemos. Puedes volver cuando gustes.&Estaré para ti 24/7. Adiós.&Adiós.&Hasta luego amigo(a).&Bye!&Hasta pronto.&Adiós vaquero.&Auf wiedersehen
+saludo&Hola, bienvenido soy Poli-bot.&Bienvenido, intenta escribir “Oferta educativa”.&Bienvenido, intenta escribir “Enlaces”.&Bienvenido, intenta escribir “Contacto”.&Bienvenido, intenta escribir “Recursos”.
+neutral&¿eh? A veces tengo amnesia.&Ya no sé qué decir.&Ajá.&Meee&:p&Bueno&Muy bien
+ingenieria_en_alimentos&Escribe “plan de estudios de ingeniería en alimentos”.&Escribe “Acerca de la ingeniería en alimentos”.
+ingenieria_ambiental&Escribe “plan de estudios de ingeniería ambiental”&Escribe “Acerca de la ingeniería ambiental”.
