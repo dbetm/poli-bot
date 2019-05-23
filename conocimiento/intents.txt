@@ -3,3 +3,27 @@ saludo&Hola, bienvenido soy Poli-bot.&Bienvenido, intenta escribir “Oferta edu
 neutral&¿eh? A veces tengo amnesia.&Ya no sé qué decir.&Ajá.&Meee&:p&Bueno&Muy bien
 ingenieria_en_alimentos&Escribe “plan de estudios de ingeniería en alimentos”.&Escribe “Acerca de la ingeniería en alimentos”.
 ingenieria_ambiental&Escribe “plan de estudios de ingeniería ambiental”&Escribe “Acerca de la ingeniería ambiental”.
+ingenieria_en_sistemas_computacionales&Escribe “plan de estudios de ingeniería en sistemas computacionales”.&Escribe “Acerca de la ingeniería en sistemas computacionales”.
+ingenieria_mecatronica&Escribe “Plan de estudios de ingeniería mecatrónica”.&Escribe “Acerca de la ingeniería mecatrónica”.
+becas&Te sugiero visitar la página institucional https://www.zacatecas.ipn.mx/  y perfiles de la escuela en redes sociales.
+contacto&+ Sitio web: http://www.zacatecas.ipn.mx \n+  Correo: zacatecas@ipn.mx\n+  Dirección: Blvd. del Bote S/N Cerro del Gato Ejido La Escondida, Col. Ciudad Administrativa 98160 Zacatecas, Zac.\n01-492-92-42-419
+convertidor_de_temperaturas&[Imagen] - http://3.bp.blogspot.com/-1viKQrzbYFc/VaFq7Bw1pXI/AAAAAAAAClA/tvQzsQCZBFA/s1600/formulas-de-conversion-de-temperatura-kelvin-fahrenheit-celsius-centigrados-fisica.png
+conocenos&Elige una opción:\n1)Escudo.\n2)Misión.\n3)Fotos.\n4)Huélum.\n5)Visión.
+sobre_los_creadores&Mmm escribe otra cosa...mientras lo recuerdo.&2+2=4 :D, no lo sé.&No lo sé, por cierto, ¿no deberías estar estudiando?&2 humanos.&Politécnicos.&Solo se que fue en mayo.
+derivadas&[Archivo] - https://dbetm.github.io/cbta167/docs/reglas_diferenciaci%C3%B3n.pdf
+integrales&[Archivo] - https://dbetm.github.io/cbta167/docs/tabla_integrales.pdf
+director&Director actual de la UPIIZ: M. En C. Juan Alberto Alvarado Olivares.\nDirector general del IPN: Dr. Mario Alberto Rodríguez Casas​.
+egresados&No hay información disponible, te sugiero visitar la página institucional https://www.zacatecas.ipn.mx/  y perfiles de la escuela en redes sociales.&No hay información sobre egresados, te sugiero visitar la página institucional https://www.zacatecas.ipn.mx/  y perfiles de la escuela en redes sociales.
+logo&[imagen] - https://banner2.kisspng.com/20180602/tgv/kisspng-instituto-politcnico-nacional-escom-upiita-unida-5b133754e1e045.7535792015279860049252.jpg\nDescripción escudo UPIIZ: [Archivo] - http://www.zacatecas.ipn.mx/Conocenos/Documents/Rese%C3%B1aLogoUPIIZ.pdf\n[Imagen] - https://i.pinimg.com/236x/c4/c9/c5/c4c9c5b30f9cebc5de41ec74cce885d2.jpg\nDescripción escudo IPN: [Archivo] - http://www.upiig.ipn.mx/Conocenos/Paginas/Escudo.aspx
+fotos&[imagen][imagen][imagen][imagen]
+agradecimiento&De nada :D&Estamos para servirte.&Por nada +)&No es nada.
+huelum&¡Huélum, Huélum, Gloria\nA la Cachi Cachi Porra\nA la Cachi Cachi Porra\nPim Pom Porra\nPim Pom Porra\nPolitécnico, Politécnico\nGloria!
+mision&​​La UPIIZ es la Unidad Académica de Nivel Superior del IPN, comprometida con la formación integral de egresadas y egresados altamente calificados, mediante la educación basada en competencias profesionales y valores como la responsabilidad, ética y tolerancia, quienes son capaces de desarrollar y aplicar conocimientos científicos y tecnológicos para contribuir a la solución de problemas en la región y del país, con un alto compromiso social, a través de la participación de personal académico-administrativo de excelencia e infraestructura moderna y de primer nivel.
+vision&La UPIIZ será reconocida socialmente como líder en la formación de egresadas y egresados altamente calificados en las áreas de Alimentos, Ambiental, Mecatrónica, Sistemas Computacionales y Metalúrgica, a través de programas académicos pertinentes y acreditados, sustentados en un modelo educativo innovador y flexible, en conjunto con programas de posgrado, educación continua e integración social que ofrece el IPN, orientados a la solución de problemas nacionales en los sectores económico, productivo y social en un mundo en constante transformación.
+nombre&Mucho gusto humano, mi nombre es Poli-bot, adoro a los politécnicos.&Pues,...,ya lo sabes.&Pregúntame más tarde.&Poli-bot, bot-Poli, Poli-bot,...
+oferta_educativa&Mecatrónica\nAmbiental\nSistemas\nAlimentos\nMetalúrgica.
+recursos_educativos&Tabla periódica.\nFormulario de integrales.\nFormulario de derivadas.\nTabla de conversión de temperaturas.
+tabla_periodica&Tabla periódica de elementos químicos: [Archivo] - https://www.periodni.com/download/tabla_periodica-color.pdf
+sitio_web&Página de la escuela: http://www.zacatecas.ipn.mx/\nPágina IPN: https://www.ipn.mx/
+club_de_programacion&El club de programación se enfoca en el diseño de algoritmos que permiten resolver problemas que ponen a prueba los conocimientos de algoritmia, estructuras de datos, matemáticas, etc. Para más información visita: https://www.facebook.com/clubprogramacionupiizipn/
+default_intent&Una disculpa no he entendido lo que dices.&Ups no he entendido a qué te refieres.&No hay respuesta, prueba escribiendo algo como “Contacto” o “Plan de estudios…”.&¿Disculpa?&Me dejas sin palabras.&Decías.&Cómo&Los límites de mi lenguaje son los límites de mi mente. Intenta con algo diferente.&Intenta con algo diferente.&No he entendido lo que dices&No entiendo :(
