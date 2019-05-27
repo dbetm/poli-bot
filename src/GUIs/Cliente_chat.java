@@ -16,6 +16,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JEditorPane;
 
 /**
  *
@@ -28,16 +29,21 @@ public class Cliente_chat extends javax.swing.JFrame {
      */
     private Interface_servidor servidor;
     private Cliente cliente;
+    private String log;
     public Cliente_chat() {
         initComponents();
+        //txtLog.setContentType("text/html");
         this.getContentPane().setBackground(new Color(108, 19, 43));
     }
 
     Cliente_chat(Cliente cliente) {
         
             initComponents();
+            log = "";
             this.cliente = cliente;
             this.getContentPane().setBackground(new Color(108, 19, 43));
+            txtLog.setContentType("text/html");
+            txtLog.setText("<img src=\"imagenes/IPN.png\"></img>");
             String nombre;
             nombre = cliente.getNombre().split(" ")[0];
             bienvenida.setText("Bienvenido(a) : "+nombre);
@@ -60,22 +66,16 @@ public class Cliente_chat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtLog = new javax.swing.JTextArea();
         txtMensaje = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         bienvenida = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtLog = new javax.swing.JEditorPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(108, 19, 43));
-
-        txtLog.setEditable(false);
-        txtLog.setBackground(new java.awt.Color(187, 174, 177));
-        txtLog.setColumns(20);
-        txtLog.setRows(5);
-        jScrollPane1.setViewportView(txtLog);
 
         txtMensaje.setBackground(new java.awt.Color(187, 174, 177));
         txtMensaje.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -99,24 +99,27 @@ public class Cliente_chat extends javax.swing.JFrame {
         bienvenida.setForeground(java.awt.Color.white);
         bienvenida.setText("Bienvenido");
 
+        txtLog.setEditable(false);
+        jScrollPane2.setViewportView(txtLog);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                     .addComponent(jButton2)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(bienvenida)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton3))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,15 +129,15 @@ public class Cliente_chat extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3)
                     .addComponent(bienvenida))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtMensaje)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,9 +145,14 @@ public class Cliente_chat extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!txtMensaje.getText().isEmpty()){
-            try {
-                txtLog.setText(txtLog.getText()+"\n"+"tú: "+txtMensaje.getText()+"\n"+"Poli bot:"+this.servidor.resolver(txtMensaje.getText()));
-                txtMensaje.setText("");
+            try{
+                    txtLog.setContentType("text/plane");
+                    txtLog.setText("");
+                    txtLog.setContentType("text/html");
+                    String ans = "<br> <b>tú: "+txtMensaje.getText()+"</b> <br>"+"Poli bot:"+this.servidor.resolver(txtMensaje.getText());
+                    txtLog.setText(this.log +ans);
+                    this.log+=ans;
+                    txtMensaje.setText("");
             } catch (RemoteException ex) {
                 ex.printStackTrace();
             }
@@ -156,7 +164,12 @@ public class Cliente_chat extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             if(!txtMensaje.getText().isEmpty()){
                 try {
-                    txtLog.setText(txtLog.getText()+"\n"+"tú: "+txtMensaje.getText()+"\n"+"Poli bot:"+this.servidor.resolver(txtMensaje.getText()));
+                    txtLog.setContentType("text/plane");
+                    txtLog.setText("");
+                    txtLog.setContentType("text/html");
+                    String ans = "<br> <b>tú: "+txtMensaje.getText()+"</b> <br>"+"Poli bot:"+this.servidor.resolver(txtMensaje.getText());
+                    txtLog.setText(this.log +ans);
+                    this.log+=ans;
                     txtMensaje.setText("");
                 } catch (RemoteException ex) {
                     ex.printStackTrace();
@@ -205,8 +218,8 @@ public class Cliente_chat extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtLog;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JEditorPane txtLog;
     private javax.swing.JTextField txtMensaje;
     // End of variables declaration//GEN-END:variables
 }

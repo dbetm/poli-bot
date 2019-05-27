@@ -173,3 +173,9 @@ Programación competitiva&Club_de_programacion
 Club de programación&Club_de_programacion
 Club de algoritmia&Club_de_programacion
 Concursos de programación&Club_de_programacion
+Cómo estás&Sentimientos
+Cómo te sientes&Sentimientos
+Estás feliz&Sentimientos
+Qué es el amor&Sentimientos
+Qué tal tú día&Sentimientos
+Cómo te fue hoy&Sentimientos
