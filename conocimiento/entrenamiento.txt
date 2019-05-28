@@ -1,6 +1,6 @@
 Ya no te necesito&despedida
 Hasta luego&despedida
-Bye&espedida
+Bye&despedida
 Ya me voy&despedida
 Nos vemos&despedida
 Goodbye&despedida
