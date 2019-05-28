@@ -3,14 +3,21 @@ package Clases;
 import Interfaces.Interface_cliente;
 import Interfaces.Interface_servidor;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;;
+import java.io.FileWriter;
+import java.io.IOException;import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.StringTokenizer;
@@ -24,8 +31,10 @@ import javax.swing.JOptionPane;
  */
 public class Servidor extends UnicastRemoteObject implements Interface_servidor {
 
-    ArrayList<Par> listaEntrenamiento;
-    ArrayList<Intent> ListaIntents;
+    private ArrayList<Par> listaEntrenamiento;
+    private ArrayList<Intent> ListaIntents;
+    private String nameLogfile;
+    
 
     public Servidor() throws RemoteException {
         super();
@@ -33,7 +42,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
         this.ListaIntents = new ArrayList<Intent>();
         listaEntrenamiento();
         tokenizarListaIntents();
-
+        this.nameLogfile = "server.log";
     }
 
     private int comparar(String s1, String s2) {
@@ -155,7 +164,30 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
 
     @Override
     public void registrarActividad(Interface_cliente cliente) throws RemoteException {
-        System.out.println("Nombre :" + cliente.getNombre());
+        String tiempo, nombre, correo;
+        String pattern = "hh:mm:ss dd-MM-yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        tiempo = simpleDateFormat.format(new Date());
+        nombre = cliente.getNombre();
+        correo = cliente.getCorreo();
+        // Fecha y hora | Nombre | Correo
+        System.out.println(tiempo + ", " + nombre + ", " + correo);
+        BufferedWriter out = null; 
+        try {
+            out = new BufferedWriter(new FileWriter(this.nameLogfile, true));
+            out.write(tiempo + ", " + nombre + ", " + correo + "\n");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            try { 
+                out.close();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } 
     }
 
     private String adaptar(String cadena) {

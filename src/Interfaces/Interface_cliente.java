@@ -15,4 +15,5 @@ import java.rmi.RemoteException;
 public interface Interface_cliente extends Remote{
     public void enviarMsg(String msg) throws RemoteException;
     public String getNombre()throws RemoteException;
+    public String getCorreo() throws RemoteException;
 }

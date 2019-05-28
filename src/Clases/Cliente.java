@@ -15,6 +15,7 @@ import java.rmi.RemoteException;
 public class Cliente extends UnicastRemoteObject implements Interface_cliente{
     private String nombre;
     private String email;
+    
     public Cliente(String nombre,String email) throws RemoteException {
         super();
         this.nombre = nombre;
@@ -29,5 +30,10 @@ public class Cliente extends UnicastRemoteObject implements Interface_cliente{
     public String getNombre() {
         return this.nombre;
     }
-    
+
+    @Override
+    public String getCorreo() throws RemoteException {
+        return this.email;
+    }
+
 }
