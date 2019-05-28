@@ -71,7 +71,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
                 sMenor = p.second; 
             }
         }
-        if (menor > 6)
+        if (menor >= msg.length()-1)
             sMenor="Default_intent";
         
         System.out.println("Se eligio : "+ sMenor);
