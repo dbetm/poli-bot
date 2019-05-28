@@ -8,7 +8,10 @@ package GUIs;
 import Clases.Cliente;
 import Interfaces.Interface_servidor;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -43,7 +46,7 @@ public class Cliente_chat extends javax.swing.JFrame {
             this.cliente = cliente;
             this.getContentPane().setBackground(new Color(108, 19, 43));
             txtLog.setContentType("text/html");
-            txtLog.setText("<img src=\"imagenes/IPN.png\"></img>");
+            txtLog.setText("<img src=imagenes/IPN.png></img>");
             String nombre;
             nombre = cliente.getNombre().split(" ")[0];
             bienvenida.setText("Bienvenido(a) : "+nombre);
@@ -68,7 +71,7 @@ public class Cliente_chat extends javax.swing.JFrame {
 
         txtMensaje = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnMostrarArchivos = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         bienvenida = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -91,7 +94,12 @@ public class Cliente_chat extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Abrir archivos");
+        btnMostrarArchivos.setText("Abrir archivos");
+        btnMostrarArchivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarArchivosActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Desconectar");
 
@@ -110,16 +118,15 @@ public class Cliente_chat extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(bienvenida)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))))
+                    .addComponent(btnMostrarArchivos)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(bienvenida)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,7 +139,7 @@ public class Cliente_chat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnMostrarArchivos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtMensaje)
@@ -149,7 +156,7 @@ public class Cliente_chat extends javax.swing.JFrame {
                     txtLog.setContentType("text/plane");
                     txtLog.setText("");
                     txtLog.setContentType("text/html");
-                    String ans = "<br> <b>tú: "+txtMensaje.getText()+"</b> <br>"+"Poli bot:"+this.servidor.resolver(txtMensaje.getText());
+                    String ans = "<br> <b>Tú: "+txtMensaje.getText()+"</b> <br>"+"Poli-bot: "+this.servidor.resolver(txtMensaje.getText());
                     txtLog.setText(this.log +ans);
                     this.log+=ans;
                     txtMensaje.setText("");
@@ -167,7 +174,7 @@ public class Cliente_chat extends javax.swing.JFrame {
                     txtLog.setContentType("text/plane");
                     txtLog.setText("");
                     txtLog.setContentType("text/html");
-                    String ans = "<br> <b>tú: "+txtMensaje.getText()+"</b> <br>"+"Poli bot:"+this.servidor.resolver(txtMensaje.getText());
+                    String ans = "<br> <b>Tú: " + txtMensaje.getText()+"</b> <br>"+"Poli-bot: "+this.servidor.resolver(txtMensaje.getText());
                     txtLog.setText(this.log +ans);
                     this.log+=ans;
                     txtMensaje.setText("");
@@ -177,6 +184,16 @@ public class Cliente_chat extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_txtMensajeKeyPressed
+
+    // Abrir carpeta en explorador de archivos
+    private void btnMostrarArchivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarArchivosActionPerformed
+        try {
+            Desktop.getDesktop().open(new File("files/"));
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnMostrarArchivosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,8 +232,8 @@ public class Cliente_chat extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienvenida;
+    private javax.swing.JButton btnMostrarArchivos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JEditorPane txtLog;
