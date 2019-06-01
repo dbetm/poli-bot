@@ -9,34 +9,30 @@ Hasta pronto&despedida
 Hola bro&saludo
 Hola sister&saludo
 Empezar&saludo
+¿Qué puedo hacer?&saludo
+qué puedo preguntar&saludo
 Hola&saludo
 Holas&saludo
-Cómo estás&saludo
+Holi&saludo
+hola qué hace&saludo
 Qué onda&saludo
 Buenas tardes&saludo
+Buenos días&saludo
+Buenas noches&saludo
 Hola amigo&saludo
 Qué puedo hacer&saludo
-Así es&neutral
-Sí&neutral
-No es lo que buscaba&neutral
-No&neutral
-Pero&neutral
-Que no&neutral
-Claro&neutral
-Por supuesto&neutral
-Por supuesto que no&neutral
 Carrera de alimentos&ingenieria_en_alimentos
 Alimentos&ingenieria_en_alimentos
 Química en los alimentos&ingenieria_en_alimentos
 Alimenticio&ingenieria_en_alimentos
 Ingeniería en alimentos&ingenieria_en_alimentos
-Quiero estudiar alimentos&ingenieria_en_alimentos
+Quiero alimentos&ingenieria_en_alimentos
 Metabolismo&ingenieria_en_alimentos
 Bioquímica&ingenieria_en_alimentos
-Carrera de ambiental&ingenieria_ambiental
-No quiero más cambio climático&ingenieria_ambiental
-Cuidado del planeta&ingenieria_ambiental
-Me gustan las plantas y animales&ingenieria_ambiental
+Carrera ambiental&ingenieria_ambiental
+No quiero cambio climático&ingenieria_ambiental
+Cuidado planeta&ingenieria_ambiental
+Me gustan las plantas animales&ingenieria_ambiental
 Fuentes alternativas de energía&ingenieria_ambiental
 Medio ambiente&ingenieria_ambiental
 Desarrollo sustentable&ingenieria_ambiental
@@ -52,7 +48,7 @@ Tecnologías de la información&Ingenieria_en_sistemas_computacionales
 Bases de datos&Ingenieria_en_sistemas_computacionales
 Android iOS windows phone&Ingenieria_en_sistemas_computacionales
 Hacking&Ingenieria_en_sistemas_computacionales
-Programación competitiva&Ingenieria_en_sistemas_computacionales
+Programación&Ingenieria_en_sistemas_computacionales
 Me gusta la electrónica&Ingenieria_en_sistemas_computacionales
 Java&Ingenieria_en_sistemas_computacionales
 Python&Ingenieria_en_sistemas_computacionales
@@ -93,17 +89,21 @@ Beca&Becas
 Ubicación&Contacto
 Contacto&Contacto
 ¿Dónde están?&Contacto
+Redes sociales&Contacto
+Facebook&Contacto
+Correo electrónico&Contacto
 De Kelvin a Celsius&Convertidor_de_temperaturas
 De Kelvin a Fahrenheit&Convertidor_de_temperaturas
 De Fahrenheit a Celsius&Convertidor_de_temperaturas
 De Fahrenheit a Kelvin&Convertidor_de_temperaturas
 De Celsius a Kelvin&Convertidor_de_temperaturas
 De Celsius a Fahrenheit&Convertidor_de_temperaturas
+Convertidor de temperaturas&Convertidor_de_temperaturas
 Qué himno tienen&Conocenos
 Cosas representativas del Poli&Conocenos
-Misión&Conocenos
-Visión&Conocenos
-Fotos&Conocenos
+Quiero conocer más de la UPIIZ&Conocenos
+Politécnico&Conocenos
+Filosofía del Poli&Conocenos
 Quién hizo este chatbot&Sobre_los_creadores
 Tu jefe es&Sobre_los_creadores
 Quién te programó&Sobre_los_creadores
@@ -125,14 +125,13 @@ Fórmulas de integrales&Integrales
 Integración&Integrales
 Integrales&Integrales
 Tabla de integrales&Integrales
-¿Quién es el director de la UPIIZ?&Director
+¿Quién director UPIIZ?&Director
 Director general&Director
-Quién es el director de la UPIIZ&Director
 Juan Alberto&Director
 Juanito&Director
 Quién es el director de la escuela&Director
 Quién es el dire&Director
-Director&Director
+Director del politécnio&Director
 Alumnos egresados&Egresados
 Egresados&Egresados
 Logo escuela&Logo
@@ -173,6 +172,7 @@ Cuál es tu apodo&Nombre
 qué materias se ofertan&Oferta_educativa
 Oferta educativa&Oferta_educativa
 Qué carreras hay&Oferta_educativa
+Cuánto dura la carrera&Oferta_educativa
 ¿Cuáles son los programas académicos?&Oferta_educativa
 Ingenierías&Oferta_educativa
 Carreras&Oferta_educativa
@@ -191,6 +191,7 @@ website&Sitio_web
 upiiz ipn&Sitio_web
 página web&Sitio_web
 sitio web&Sitio_web
+Portal web&Sitio web
 Competencias de programación&Club_de_programacion
 Programación competitiva&Club_de_programacion
 Club de programación&Club_de_programacion

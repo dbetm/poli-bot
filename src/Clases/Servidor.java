@@ -113,22 +113,11 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
                     //System.out.println("Valor: " + valor);
                     //puntuacion += ((mensaje[i].length()-(double)valor)*100) / mensaje[i].length(); 
                     if (valor == 0) {
-                        puntuacion += mensaje[i].length() * 2;
+                        puntuacion += mensaje[i].length() * 3;
                         break;
                     }
-                    
-                    else if (mensaje[i].length() <= 2) {
-                        if(valor <= 2) puntuacion++;
-                    }
-                    else if (mensaje[i].length() <= 6) {
-                        if (valor <= 3) {
-                            puntuacion++;
-                        }
-                    }
                     else {
-                        if (valor < 7) {
-                            puntuacion++;
-                        }
+                        puntuacion += mensaje[i].length() - valor;
                     }
                     
                     //else if (valor < 5) puntuacion++;
@@ -140,10 +129,10 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
                 System.out.println("YES");
                 System.out.println(" ---------------" + p.second + " " + puntuacion);
             }
-            System.out.println("############################## " + puntuacion);
+            //System.out.println("############################## " + puntuacion);
         } 
 
-        if (maxPuntuacion < 7) {
+        if (maxPuntuacion < 6) {
             intent = "default_intent";
         }
         
