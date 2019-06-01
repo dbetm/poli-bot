@@ -32,6 +32,7 @@ public class Cliente_login extends javax.swing.JFrame {
      * Creates new form Cliente_login
      */
     private Interface_servidor servidor;
+    
     public Cliente_login() {
         initComponents();
         this.getContentPane().setBackground(new Color(255,255,255));
@@ -143,9 +144,11 @@ public class Cliente_login extends javax.swing.JFrame {
                 Cliente_chat cln = new Cliente_chat(cliente);          
                 cln.setVisible(true);
                 this.setVisible(false);
-            } catch (RemoteException ex) {
+            }
+            catch (RemoteException ex) {
                 ex.printStackTrace();
-            } catch (NotBoundException ex) {
+            }
+            catch (NotBoundException ex) {
                 Logger.getLogger(Cliente_login.class.getName()).log(Level.SEVERE, null, ex);
             } 
         }

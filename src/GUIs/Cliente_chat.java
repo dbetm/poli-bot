@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUIs;
 
 import Clases.Cliente;
@@ -20,6 +15,8 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JEditorPane;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
 
 /**
  *
@@ -33,6 +30,7 @@ public class Cliente_chat extends javax.swing.JFrame {
     private Interface_servidor servidor;
     private Cliente cliente;
     private String log;
+    
     public Cliente_chat() {
         initComponents();
         //txtLog.setContentType("text/html");
@@ -40,24 +38,44 @@ public class Cliente_chat extends javax.swing.JFrame {
     }
 
     Cliente_chat(Cliente cliente) {
-        
-            initComponents();
-            log = "";
-            this.cliente = cliente;
-            this.getContentPane().setBackground(new Color(108, 19, 43));
-            txtLog.setContentType("text/html");
-            txtLog.setText("<img src=imagenes/IPN.png></img>");
-            String nombre;
-            nombre = cliente.getNombre().split(" ")[0];
-            bienvenida.setText("Bienvenido(a) : "+nombre);
+        initComponents();
+        this.log = "";
+        this.cliente = cliente;
+        this.getContentPane().setBackground(new Color(108, 19, 43));
+        this.txtLog.setContentType("text/html");
+        String imagen = "<img src='file:imagenes/IPN.png'></img><br>"; 
+        this.txtLog.setText(imagen);
+        this.log = imagen;
+        String nombre;
+        nombre = cliente.getNombre().split(" ")[0];
+        this.bienvenida.setText("Bienvenido(a) : "+nombre);
         try {
             Registry reg = LocateRegistry.getRegistry("127.0.0.1",1099);
             this.servidor = (Interface_servidor)reg.lookup("servidor");
-        } catch (RemoteException ex) {
-            ex.printStackTrace();
-        } catch (NotBoundException ex) {
+        }
+        catch (RemoteException ex) {
             ex.printStackTrace();
         }
+        catch (NotBoundException ex) {
+            ex.printStackTrace();
+        }
+        // Set listener al txtLog para que se abra el navegador al dar click sobre
+        // los enlaces
+        this.txtLog.addHyperlinkListener(new HyperlinkListener() {
+            @Override
+            public void hyperlinkUpdate(HyperlinkEvent hle) {
+                if (HyperlinkEvent.EventType.ACTIVATED.equals(hle.getEventType())) {
+                    System.out.println(hle.getURL());
+                    Desktop desktop = Desktop.getDesktop();
+                    try {
+                        desktop.browse(hle.getURL().toURI());
+                    }
+                    catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     /**
@@ -117,34 +135,34 @@ public class Cliente_chat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
-                    .addComponent(btnMostrarArchivos)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bienvenida)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMostrarArchivos)
+                            .addComponent(bienvenida)
+                            .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(bienvenida))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bienvenida)
+                    .addComponent(jButton3))
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMostrarArchivos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtMensaje)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
         );
 
         pack();
@@ -152,15 +170,14 @@ public class Cliente_chat extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!txtMensaje.getText().isEmpty()){
-            try{
-                    txtLog.setContentType("text/plane");
-                    txtLog.setText("");
-                    txtLog.setContentType("text/html");
-                    String ans = "<br> <b>Tú: "+txtMensaje.getText()+"</b> <br>"+"Poli-bot: "+this.servidor.resolver(txtMensaje.getText());
-                    txtLog.setText(this.log +ans);
-                    this.log+=ans;
-                    txtMensaje.setText("");
-            } catch (RemoteException ex) {
+            try {
+                String ans = "<br> <b>Tú</b>: "+txtMensaje.getText()+"<br>"+
+                    "<b>Poli-bot: </b>"+this.servidor.resolver(txtMensaje.getText());
+                txtLog.setText(this.log +ans);
+                this.log += ans;
+                txtMensaje.setText("");
+            }
+            catch (RemoteException ex) {
                 ex.printStackTrace();
             }
         }
@@ -171,14 +188,14 @@ public class Cliente_chat extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             if(!txtMensaje.getText().isEmpty()){
                 try {
-                    txtLog.setContentType("text/plane");
-                    txtLog.setText("");
                     txtLog.setContentType("text/html");
-                    String ans = "<br> <b>Tú: " + txtMensaje.getText()+"</b> <br>"+"Poli-bot: "+this.servidor.resolver(txtMensaje.getText());
-                    txtLog.setText(this.log +ans);
-                    this.log+=ans;
+                    String ans = "<br> <b>Tú: </b>" + txtMensaje.getText()+" <br>"
+                        +"<b>Poli-bot: </b>"+this.servidor.resolver(txtMensaje.getText());
+                    txtLog.setText(this.log + ans);
+                    this.log += ans;
                     txtMensaje.setText("");
-                } catch (RemoteException ex) {
+                }
+                catch (RemoteException ex) {
                     ex.printStackTrace();
                 }
             }

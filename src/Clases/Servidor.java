@@ -293,8 +293,8 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
 
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex + ""
-                    + "\nNo se ha encontrado el archivo",
-                    "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
+                + "\nNo se ha encontrado el archivo",
+                "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
 
         }
     }
