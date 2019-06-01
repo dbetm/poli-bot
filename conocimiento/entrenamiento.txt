@@ -30,22 +30,34 @@ Alimentos&ingenieria_en_alimentos
 Química en los alimentos&ingenieria_en_alimentos
 Alimenticio&ingenieria_en_alimentos
 Ingeniería en alimentos&ingenieria_en_alimentos
-Quiero estudiar algo relacionado con los alimentos&ingenieria_en_alimentos
+Quiero estudiar alimentos&ingenieria_en_alimentos
+Metabolismo&ingenieria_en_alimentos
+Bioquímica&ingenieria_en_alimentos
 Carrera de ambiental&ingenieria_ambiental
 No quiero más cambio climático&ingenieria_ambiental
 Cuidado del planeta&ingenieria_ambiental
 Me gustan las plantas y animales&ingenieria_ambiental
 Fuentes alternativas de energía&ingenieria_ambiental
 Medio ambiente&ingenieria_ambiental
+Desarrollo sustentable&ingenieria_ambiental
+Ecosistemas&ingenieria_ambiental
+Análisis de suelo&ingenieria_ambiental
+No quiero que se acabe el mundo@&ingenieria_ambiental
 Ecología&ingenieria_ambiental
 Biología&ingenieria_ambiental
-Ambiental&ingenieria_ambiental
+Ambientalistas&ingenieria_ambiental
 Programación móvil&Ingenieria_en_sistemas_computacionales
+Informática&Ingenieria_en_sistemas_computacionales
+Tecnologías de la información&Ingenieria_en_sistemas_computacionales
 Bases de datos&Ingenieria_en_sistemas_computacionales
 Android iOS windows phone&Ingenieria_en_sistemas_computacionales
 Hacking&Ingenieria_en_sistemas_computacionales
-Programación&Ingenieria_en_sistemas_computacionales
+Programación competitiva&Ingenieria_en_sistemas_computacionales
 Me gusta la electrónica&Ingenieria_en_sistemas_computacionales
+Java&Ingenieria_en_sistemas_computacionales
+Python&Ingenieria_en_sistemas_computacionales
+Machine learning&Ingenieria_en_sistemas_computacionales
+Inteligencia artificial&Ingenieria_en_sistemas_computacionales
 Quiero aprender redes&Ingenieria_en_sistemas_computacionales
 Quiero aprender animación&Ingenieria_en_sistemas_computacionales
 Sistemas computacionales&Ingenieria_en_sistemas_computacionales
@@ -57,12 +69,23 @@ ISC&Ingenieria_en_sistemas_computacionales
 Robots&Ingenieria_mecatronica
 Electromecánica&Ingenieria_mecatronica
 Quiero aprender electrónica&Ingenieria_mecatronica
-Meca&Ingenieria_mecatronica
 IoT&Ingenieria_mecatronica
 Internet de las cosas&Ingenieria_mecatronica
 Robótica&Ingenieria_mecatronica
 Mecatrónica&Ingenieria_mecatronica
-Electrónica&Ingenieria_mecatronica
+Ingeniería en mecatrónica&Ingenieria_mecatronica
+Circuitos&Ingenieria_mecatronica
+PCB&Ingenieria_mecatronica
+protoboard&Ingenieria_mecatronica
+automatización y control&Ingenieria_mecatronica
+Minería&Ingeniería_metalúrgica
+Minas&Ingeniería_metalúrgica
+Carreras del estado&Ingeniería_metalúrgica
+ingeniería metalúrgica&Ingeniería_metalúrgica
+extracción de metales&Ingeniería_metalúrgica
+quero trabajar en una mina&Ingeniería_metalúrgica
+metálicos&Ingeniería_metalúrgica
+aleaciones&Ingeniería_metalúrgica
 Becas&Becas
 Información sobre becas&Becas
 La beca&Becas
