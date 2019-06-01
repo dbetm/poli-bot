@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package interfaces;
 
+import polibot_cliente.Cliente;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -12,8 +13,7 @@ import java.rmi.RemoteException;
  *
  * @author wolfteinter
  */
-public interface Interface_cliente extends Remote{
-    public void enviarMsg(String msg) throws RemoteException;
-    public String getNombre()throws RemoteException;
-    public String getCorreo() throws RemoteException;
+public interface Interface_servidor extends Remote{
+    public void registrarActividad(Interface_cliente cliente) throws RemoteException;
+    public String resolver(String msg) throws RemoteException;
 }

@@ -1,7 +1,8 @@
-package Clases;
+package polibot_servidor;
 
-import Interfaces.Interface_cliente;
-import Interfaces.Interface_servidor;
+import polibot_servidor.Intent;
+import interfaces.Interface_cliente;
+import interfaces.Interface_servidor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;

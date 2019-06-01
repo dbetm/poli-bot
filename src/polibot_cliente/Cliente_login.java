@@ -1,7 +1,6 @@
-package GUIs;
+package polibot_cliente;
 
-import Clases.Cliente;
-import Interfaces.Interface_servidor;
+import interfaces.Interface_servidor;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;

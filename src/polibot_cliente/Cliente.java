@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases;
+package polibot_cliente;
 
+import interfaces.Interface_cliente;
 import java.rmi.server.UnicastRemoteObject;
-import Interfaces .*;
 import java.rmi.RemoteException;
 /**
  *
