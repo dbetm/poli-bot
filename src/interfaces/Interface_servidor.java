@@ -10,4 +10,5 @@ import java.rmi.RemoteException;
 public interface Interface_servidor extends Remote{
     public void registrarActividad(Interface_cliente cliente) throws RemoteException;
     public String resolver(String msg) throws RemoteException;
+    public byte[] descargarArchivo(String pathname) throws RemoteException;
 }

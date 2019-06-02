@@ -4,9 +4,13 @@ import interfaces.Interface_cliente;
 import interfaces.Interface_servidor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -18,19 +22,19 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author wolfteinter
  */
-public class Servidor extends UnicastRemoteObject implements Interface_servidor {
-
+public class Servidor extends UnicastRemoteObject implements Interface_servidor, 
+        Serializable {
+    // Atributos
     private ArrayList<Par> listaEntrenamiento;
     private ArrayList<Intent> ListaIntents;
     private String pathNameLogfile;
+    private File archivo; // la clase File es serializable
     
 
     public Servidor() throws RemoteException {
@@ -117,15 +121,35 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
                 break;
             }
         }
-        return procesarRespuesta(respuesta);
+        return respuesta;
     }
     
-    private String procesarRespuesta(String respuesta) {
-        String mensaje[] = respuesta.split(" ");
-        for (int i = 0; i < mensaje.length; i++) {
-            System.out.println(mensaje[i]);
+    @Override
+    public byte[] descargarArchivo(String pathname) throws RemoteException {
+        byte datos[];
+        File archivo = new File(pathname);
+        datos = new byte[(int)archivo.length()];
+        FileInputStream entrada = null;
+        try {
+            entrada = new FileInputStream(archivo);
+            entrada.read(datos, 0, datos.length);
         }
-        return respuesta;
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            try {
+                entrada.close();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        
+        return datos;
     }
 
     @Override

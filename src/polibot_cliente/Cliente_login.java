@@ -139,7 +139,7 @@ public class Cliente_login extends javax.swing.JFrame {
                 ex.printStackTrace();
             }
             catch (NotBoundException ex) {
-                Logger.getLogger(Cliente_login.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             } 
         }
     }//GEN-LAST:event_btnIniciarActionPerformed

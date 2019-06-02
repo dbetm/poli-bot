@@ -72,6 +72,7 @@ public class Cliente_chat extends javax.swing.JFrame {
                 }
             }
         });
+        this.cliente.setGUI(this);
     }
 
     /**
@@ -84,7 +85,7 @@ public class Cliente_chat extends javax.swing.JFrame {
     private void initComponents() {
 
         txtMensaje = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnEnviarMensaje = new javax.swing.JButton();
         btnMostrarArchivos = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         bienvenida = new javax.swing.JLabel();
@@ -101,10 +102,10 @@ public class Cliente_chat extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Enviar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEnviarMensaje.setText("Enviar");
+        btnEnviarMensaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEnviarMensajeActionPerformed(evt);
             }
         });
 
@@ -139,7 +140,7 @@ public class Cliente_chat extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnEnviarMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -157,44 +158,22 @@ public class Cliente_chat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEnviarMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEnviarMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarMensajeActionPerformed
         if(!txtMensaje.getText().isEmpty()){
-            try {
-                String ans = "<br> <b>Tú</b>: "+txtMensaje.getText()+"<br>"+
-                    "<b>Poli-bot: </b>"+this.servidor.resolver(txtMensaje.getText());
-                txtLog.setText(this.log +ans);
-                this.log += ans;
-                txtMensaje.setText("");
-            }
-            catch (RemoteException ex) {
-                ex.printStackTrace();
-            }
+            this.cliente.procesarRespuesta();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEnviarMensajeActionPerformed
 
     private void txtMensajeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMensajeKeyPressed
-        
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(!txtMensaje.getText().isEmpty()){
-                try {
-                    txtLog.setContentType("text/html");
-                    String ans = "<br> <b>Tú: </b>" + txtMensaje.getText()+" <br>"
-                        +"<b>Poli-bot: </b>"+this.servidor.resolver(txtMensaje.getText());
-                    txtLog.setText(this.log + ans);
-                    this.log += ans;
-                    txtMensaje.setText("");
-                }
-                catch (RemoteException ex) {
-                    ex.printStackTrace();
-                }
-            }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            this.cliente.procesarRespuesta();
         }
     }//GEN-LAST:event_txtMensajeKeyPressed
 
@@ -208,6 +187,26 @@ public class Cliente_chat extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMostrarArchivosActionPerformed
 
+    public String getLog() {
+        return log;
+    }
+    
+    public void setLog(String str) {
+        this.log = str;
+    }
+
+    public javax.swing.JEditorPane getTxtLog() {
+        return txtLog;
+    }
+
+    public javax.swing.JTextField getTxtMensaje() {
+        return txtMensaje;
+    }
+    
+    public Interface_servidor getServidor() {
+        return servidor;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -242,14 +241,17 @@ public class Cliente_chat extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienvenida;
+    private javax.swing.JButton btnEnviarMensaje;
     private javax.swing.JButton btnMostrarArchivos;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JEditorPane txtLog;
     private javax.swing.JTextField txtMensaje;
     // End of variables declaration//GEN-END:variables
+
 }
