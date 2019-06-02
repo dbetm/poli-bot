@@ -1,21 +1,16 @@
 package polibot_cliente;
 
 
-
 import interfaces.Interface_servidor;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JEditorPane;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
@@ -44,7 +39,7 @@ public class Cliente_chat extends javax.swing.JFrame {
         this.cliente = cliente;
         this.getContentPane().setBackground(new Color(108, 19, 43));
         this.txtLog.setContentType("text/html");
-        String imagen = "<img src='file:imagenes/IPN.png'></img><br>"; 
+        String imagen = "<img src='file:assets_cliente/img/IPN.png'></img><br>"; 
         this.txtLog.setText(imagen);
         this.log = imagen;
         String nombre;
@@ -206,7 +201,7 @@ public class Cliente_chat extends javax.swing.JFrame {
     // Abrir carpeta en explorador de archivos
     private void btnMostrarArchivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarArchivosActionPerformed
         try {
-            Desktop.getDesktop().open(new File("files/"));
+            Desktop.getDesktop().open(new File("archivos_cliente/"));
         }
         catch (IOException ex) {
             ex.printStackTrace();

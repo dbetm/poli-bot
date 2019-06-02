@@ -3,17 +3,12 @@ package polibot_cliente;
 import interfaces.Interface_servidor;
 import java.awt.Color;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.rmi.AccessException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -31,9 +26,10 @@ public class Cliente_login extends javax.swing.JFrame {
         initComponents();
         this.getContentPane().setBackground(new Color(255,255,255));
         //imagen origen
-        Image img = new ImageIcon(("imagenes/IPN.png")).getImage();
+        Image img = new ImageIcon(("assets_cliente/img/IPN.png")).getImage();
         //escala imagen
-        ImageIcon img2 = new ImageIcon(img.getScaledInstance(imgLogo.getWidth(), imgLogo.getHeight(), Image.SCALE_SMOOTH));
+        ImageIcon img2 = new ImageIcon(img.getScaledInstance(imgLogo.getWidth(), 
+            imgLogo.getHeight(), Image.SCALE_SMOOTH));
         //asigna a componenente JLabel
         imgLogo.setIcon(img2);
     }
@@ -134,7 +130,7 @@ public class Cliente_login extends javax.swing.JFrame {
                 Registry reg = LocateRegistry.getRegistry("127.0.0.1",1099);
                 this.servidor = (Interface_servidor)reg.lookup("servidor");
                 Cliente cliente = new Cliente(txtNombre.getText(),txtEmail.getText());       
-                this.servidor.registrarActividad(cliente);//Aqui esta el error
+                this.servidor.registrarActividad(cliente);
                 Cliente_chat cln = new Cliente_chat(cliente);          
                 cln.setVisible(true);
                 this.setVisible(false);

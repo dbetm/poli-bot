@@ -1,16 +1,12 @@
 package polibot_servidor;
 
-import polibot_servidor.Intent;
 import interfaces.Interface_cliente;
 import interfaces.Interface_servidor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-;
+import java.io.IOException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -34,7 +30,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
 
     private ArrayList<Par> listaEntrenamiento;
     private ArrayList<Intent> ListaIntents;
-    private String nameLogfile;
+    private String pathNameLogfile;
     
 
     public Servidor() throws RemoteException {
@@ -43,7 +39,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
         this.ListaIntents = new ArrayList<Intent>();
         listaEntrenamiento();
         tokenizarListaIntents();
-        this.nameLogfile = "server.log";
+        this.pathNameLogfile = "archivos_servidor/server.log";
     }
 
     private int comparar(String s1, String s2) {
@@ -55,12 +51,15 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
             for (int j = 0; j <= n; j++) {
                 if (i == 0) {
                     dp[i][j] = j;
-                } else if (j == 0) {
+                }
+                else if (j == 0) {
                     dp[i][j] = i;
-                } else if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                }
+                else if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
                     dp[i][j] = dp[i - 1][j - 1];
-                } else {
-                    dp[i][j] = 1 + Math.min(dp[i][j - 1], Math.min(dp[i - 1][j], dp[i - 1][j - 1]));
+                }
+                else {
+                    dp[i][j] = 1 + Math.min(dp[i][j-1], Math.min(dp[i-1][j], dp[i-1][j-1]));
                 }
             }
         }
@@ -69,33 +68,6 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
 
     @Override
     public String resolver(String msg) throws RemoteException {
-        /*
-        Random r = new Random();
-        int menor = Integer.MAX_VALUE;
-        String sMenor ="";
-        int valor;
-        for(Par p : this.listaEntrenamiento){
-            valor = comparar(msg,p.first);
-            if(valor<menor){
-                menor = valor;
-                sMenor = p.second; 
-            }
-        }
-        if (menor >= msg.length()-1)
-            sMenor="Default_intent";
-        
-        System.out.println("Se eligio : "+ sMenor);
-        String res = "";
-        for(Intent i : this.ListaIntents){
-            if(i.nombre.equals(sMenor)){
-                int pos = r.nextInt(i.respuestas.length);
-                res = i.respuestas[pos];
-                break;
-            }
-        }
-        
-        return res;
-         */
         String respuesta = "";
         int maxPuntuacion = 0;
         String intent = "";
@@ -107,7 +79,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
 
         for (Par p : this.listaEntrenamiento) {
             puntuacion = 0;
-            String strEntrenamiento[] = p.first.split(" ");
+            String strEntrenamiento[] = p.getFirst().split(" ");
             for (int i = 0; i < lenMensaje; i++) {
                 for (int j = 0; j < strEntrenamiento.length; j++) {
                     int valor = comparar(strEntrenamiento[j], mensaje[i]);
@@ -126,9 +98,9 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
             }
             if (puntuacion > maxPuntuacion) {
                 maxPuntuacion = puntuacion;
-                intent = p.second;
-                System.out.println("YES");
-                System.out.println(" ---------------" + p.second + " " + puntuacion);
+                intent = p.getSecond();
+                //System.out.println("YES");
+                //System.out.println(" ---------------" + p.getSecond() + " " + puntuacion);
             }
             //System.out.println("############################## " + puntuacion);
         } 
@@ -137,18 +109,22 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
             intent = "default_intent";
         }
         
-//        if (maxPuntuacion < 4) {
-//            intent = "default_intent";
-//        }
-        //System.out.println("Se elige : " + intent);
+        //System.out.println("Se elige : " + intent); // debug
         for (Intent i : this.ListaIntents) {
-            if ((i.nombre.toLowerCase()).equals(intent)) {
-                int pos = ran.nextInt(i.respuestas.length);
-                respuesta = i.respuestas[pos];
+            if ((i.getNombre().toLowerCase()).equals(intent)) {
+                int pos = ran.nextInt(i.getRespuestas().length);
+                respuesta = i.getRespuestas()[pos];
                 break;
             }
         }
-
+        return procesarRespuesta(respuesta);
+    }
+    
+    private String procesarRespuesta(String respuesta) {
+        String mensaje[] = respuesta.split(" ");
+        for (int i = 0; i < mensaje.length; i++) {
+            System.out.println(mensaje[i]);
+        }
         return respuesta;
     }
 
@@ -164,7 +140,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
         System.out.println(tiempo + ", " + nombre + ", " + correo);
         BufferedWriter out = null; 
         try {
-            out = new BufferedWriter(new FileWriter(this.nameLogfile, true));
+            out = new BufferedWriter(new FileWriter(this.pathNameLogfile, true));
             out.write(tiempo + ", " + nombre + ", " + correo + "\n");
         }
         catch (IOException ex) {
@@ -198,7 +174,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
         return aux;
     }
 
-    //Recupera los lso intents del archivo
+    //Recupera los intents del archivo
     private void tokenizarListaIntents() {
         String texto, aux;
         LinkedList<String> lista = new LinkedList();
@@ -206,7 +182,8 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
         try {
 
             //recorremos el archivo y lo leemos
-            FileReader archivos = new FileReader("conocimiento/intents.txt");
+            FileReader archivos = 
+                new FileReader("archivos_servidor/conocimiento/intents.txt");
             BufferedReader lee = new BufferedReader(archivos);
 
             while ((aux = lee.readLine()) != null) {
@@ -237,11 +214,11 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
                 lista2.clear();
 
             }
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex + ""
-                    + "\nNo se ha encontrado el archivo",
-                    "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
-
+                + "\nNo se ha encontrado el archivo",
+                "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -250,12 +227,13 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
         String texto, aux;
         LinkedList<String> lista = new LinkedList();
         try {
-            //llamamos el metodo que permite cargar la ventana
+            //llamamos el método que permite cargar la ventana
 
             //abrimos el archivo seleccionado
             //File abre = new File("conocimiento/entrenamiento.txt");
             //recorremos el archivo y lo leemos
-            FileReader archivos = new FileReader("conocimiento/entrenamiento.txt");
+            FileReader archivos = 
+                new FileReader("archivos_servidor/conocimiento/entrenamiento.txt");
             BufferedReader lee = new BufferedReader(archivos);
 
             while ((aux = lee.readLine()) != null) {
@@ -264,10 +242,8 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
                 lista.add(texto);
             }
             lee.close();
-            //System.out.println(lista.size());
 
             ArrayList<String> lista2 = new ArrayList<>();
-            String clase = "";
             for (int i = 0; i < lista.size(); i++) {
                 StringTokenizer st = new StringTokenizer(lista.get(i), "&");
 
@@ -276,16 +252,14 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
                 }
                 // a la coleccion de patrones se agrega un nuevo patron
                 this.listaEntrenamiento.add(new Par(lista2.get(0), lista2.get(1)));
-                // patrones.add();
                 lista2.clear();
-
             }
 
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex + ""
                 + "\nNo se ha encontrado el archivo",
                 "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
-
         }
     }
 
@@ -294,12 +268,13 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor 
             Servidor serv = new Servidor();
             Registry reg = LocateRegistry.createRegistry(1099);
             reg.bind("servidor", serv);
-            System.out.println("Servidor esta activo");
-        } catch (RemoteException ex) {
+            System.out.println("Servidor está corriendo...");
+        }
+        catch (RemoteException ex) {
             ex.printStackTrace();
-        } catch (AlreadyBoundException ex) {
-            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (AlreadyBoundException ex) {
+            ex.printStackTrace();
         }
     }
-
 }
