@@ -45,7 +45,9 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor,
         tokenizarListaIntents();
         this.pathNameLogfile = "archivos_servidor/server.log";
     }
-
+    
+    // Algoritmo edit distances: Retorna la cantidad mínima de operaciones
+    // (sustituir, eliminar o insertar) para convertir la cadena s1 a s2.
     private int comparar(String s1, String s2) {
         int m = s1.length();
         int n = s2.length();
@@ -72,6 +74,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor,
 
     @Override
     public String resolver(String msg) throws RemoteException {
+        if(msg.equals("verde") || msg.equals("green")) return "verde";
         String respuesta = "";
         int maxPuntuacion = 0;
         String intent = "";

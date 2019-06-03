@@ -1,6 +1,7 @@
 package polibot_cliente;
 
 import interfaces.Interface_cliente;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -32,6 +33,15 @@ public class Cliente extends UnicastRemoteObject implements Interface_cliente{
             this.GUI.setLog(this.GUI.getLog().concat(ans));
             try {
                 String respuesta = this.GUI.getServidor().resolver(mensajeCliente);
+                if(respuesta.equals("verde")) {
+                    easterEgg();
+                    // Limpiar el área de mensajes
+                    this.GUI.getTxtMensaje().setText("");
+                    ans = " +)";
+                    this.GUI.getTxtLog().setText(this.GUI.getLog() + ans);
+                    this.GUI.setLog(this.GUI.getLog().concat(ans));
+                    return;
+                }
                 String mensaje[] = respuesta.split(" ");
                 for (int i = 0; i < mensaje.length; i++) {
                     if(mensaje[i].equals("[image]")) {
@@ -128,5 +138,9 @@ public class Cliente extends UnicastRemoteObject implements Interface_cliente{
 
     public void setGUI(Cliente_chat GUI) {
         this.GUI = GUI;
+    }
+
+    private void easterEgg() {
+        this.GUI.getContentPane().setBackground(new Color(25, 149, 127));
     }
 }
