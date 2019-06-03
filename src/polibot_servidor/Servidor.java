@@ -109,7 +109,7 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor,
             //System.out.println("############################## " + puntuacion);
         } 
 
-        if (maxPuntuacion < 6) {
+        if (maxPuntuacion <= 6) {
             intent = "default_intent";
         }
         

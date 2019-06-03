@@ -14,7 +14,7 @@ Derivadas&<br> [file] archivos_servidor/reglas_diferenciacion.pdf
 Integrales&<br> [file] archivos_servidor/reglas_integracion.pdf
 Director&<br>+ Director actual de la UPIIZ: M. En C. Juan Alberto Alvarado Olivares. <br>+ Director general del IPN: Dr. Mario Alberto Rodríguez Casas​.
 Egresados&No hay información disponible, te sugiero visitar la <a href='https://www.zacatecas.ipn.mx/'>página institucional</a> y perfiles de la escuela en redes sociales.&No hay información sobre egresados, te sugiero visitar la <a href='https://www.zacatecas.ipn.mx/'>página institucional</a> y perfiles de la escuela en redes sociales.
-Logo&<br>Logo UPIIZ:<br> [image] archivos_servidor/logo_upiiz.jpg <br>Logo IPN:<br> [image] archivos_servidor/logo_ipn.jpg <br>Descripción escudo IPN:<br> [file] archivos_servidor/sobre_logo_ipn.pdf
+Logo&<br>Logo UPIIZ:<br> [image] archivos_servidor/logo_upiiz.png <br>Logo IPN:<br> [image] archivos_servidor/logo_ipn.jpg <br> [file] archivos_servidor/sobre_logo_ipn.pdf
 Fotos&<br> [image] archivos_servidor/fotos/foto1.jpg <br> [image] archivos_servidor/fotos/foto2.jpg <br> [image] archivos_servidor/fotos/foto3.jpg <br> [image] archivos_servidor/fotos/foto4.jpg <br> [image] archivos_servidor/fotos/foto5.jpg <br>
 Agradecimiento&De nada :D&Estamos para servirte.&Por nada +)&No es nada.
 Huelum&¡Huélum, Huélum, Gloria<br>A la Cachi Cachi Porra<br>A la Cachi Cachi Porra<br>Pim Pom Porra<br>Pim Pom Porra<br>Politécnico, Politécnico<br>Gloria!

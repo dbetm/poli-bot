@@ -7,8 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author wolfteinter
@@ -72,10 +70,13 @@ public class Cliente extends UnicastRemoteObject implements Interface_cliente{
             String path = "archivos_cliente/" + nombre;
             byte datos[] = this.GUI.getServidor().descargarArchivo(rutaServidor);
             File archivoLocal = new File(path);
-            FileOutputStream out = new FileOutputStream(archivoLocal);
-            out.write(datos);
-            out.flush();
-            out.close();
+            // Evitar que se vuelva a descargar
+            if(!archivoLocal.exists()) {
+                FileOutputStream out = new FileOutputStream(archivoLocal);
+                out.write(datos);
+                out.flush();
+                out.close();
+            }
         }
         catch (RemoteException ex) {
             ex.printStackTrace();
@@ -94,10 +95,13 @@ public class Cliente extends UnicastRemoteObject implements Interface_cliente{
             String path = "archivos_cliente/" + nombre;
             byte datos[] = this.GUI.getServidor().descargarArchivo(rutaServidor);
             File archivoLocal = new File(path);
-            FileOutputStream out = new FileOutputStream(archivoLocal);
-            out.write(datos);
-            out.flush();
-            out.close();
+            // Evitar que se vuelva a descargar si ya existe
+            if(!archivoLocal.exists()) {
+                FileOutputStream out = new FileOutputStream(archivoLocal);
+                out.write(datos);
+                out.flush();
+                out.close();
+            }
         }
         catch (RemoteException ex) {
             ex.printStackTrace();
