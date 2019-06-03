@@ -7,10 +7,20 @@ import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.embed.swing.JFXPanel;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
@@ -19,7 +29,6 @@ import javax.swing.event.HyperlinkListener;
  * @author wolfteinter
  */
 public class Cliente_chat extends javax.swing.JFrame {
-
     /**
      * Creates new form Cliente_chat
      */
@@ -218,6 +227,37 @@ public class Cliente_chat extends javax.swing.JFrame {
     
     public Interface_servidor getServidor() {
         return servidor;
+    }
+    
+    void playSound(String soundFile) {
+        AudioInputStream audioIn = null;
+        try {
+            File f = new File("./" + soundFile);
+            audioIn = AudioSystem.getAudioInputStream(f.toURI().toURL());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        }
+        catch (MalformedURLException ex) {
+            ex.printStackTrace();
+        }
+        catch (LineUnavailableException ex) {
+            ex.printStackTrace();
+        }
+        catch (IOException ex) {
+           ex.printStackTrace();
+        }
+        catch (UnsupportedAudioFileException ex) {
+           ex.printStackTrace(); 
+        }
+        finally {
+            try {
+                audioIn.close();
+            } 
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
     
     /**

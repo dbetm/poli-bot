@@ -62,6 +62,9 @@ public class Cliente extends UnicastRemoteObject implements Interface_cliente{
             // Limpiar el área de mensajes
             this.GUI.getTxtMensaje().setText("");
         }
+        
+        // Reproducimos el sonido
+        this.GUI.playSound("assets_cliente/audio/pling.wav");
     }
     
     private String solicitarImagen(String nombre, String rutaServidor) {
