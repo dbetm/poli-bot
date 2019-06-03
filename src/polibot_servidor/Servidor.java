@@ -232,7 +232,6 @@ public class Servidor extends UnicastRemoteObject implements Interface_servidor,
                 }
 
                 clase = lista2.get(0);
-                // a la coleccion de patrones se agrega un nuevo patron
                 this.ListaIntents.add(new Intent(clase, vector));
                 // patrones.add();
                 lista2.clear();

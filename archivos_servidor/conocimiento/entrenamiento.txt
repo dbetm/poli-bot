@@ -8,6 +8,7 @@ Adiós&despedida
 Hasta pronto&despedida
 Hola bro&saludo
 Hola sister&saludo
+hey&saludo
 Empezar&saludo
 ¿Qué puedo hacer?&saludo
 qué puedo preguntar&saludo
@@ -74,14 +75,14 @@ Circuitos&Ingenieria_mecatronica
 PCB&Ingenieria_mecatronica
 protoboard&Ingenieria_mecatronica
 automatización y control&Ingenieria_mecatronica
-Minería&Ingeniería_metalúrgica
-Minas&Ingeniería_metalúrgica
-Carreras del estado&Ingeniería_metalúrgica
-ingeniería metalúrgica&Ingeniería_metalúrgica
-extracción de metales&Ingeniería_metalúrgica
-quero trabajar en una mina&Ingeniería_metalúrgica
-metálicos&Ingeniería_metalúrgica
-aleaciones&Ingeniería_metalúrgica
+Minería&ingenieria_metalurgica
+Minas&ingenieria_metalurgica
+Carreras del estado&ingenieria_metalurgica
+ingeniería metalúrgica&ingenieria_metalurgica
+extracción de metales&ingenieria_metalurgica
+quero trabajar en una mina&ingenieria_metalurgica
+metálicos&ingenieria_metalurgica
+aleaciones&ingenieria_metalurgica
 Becas&Becas
 Información sobre becas&Becas
 La beca&Becas
@@ -177,7 +178,7 @@ Cuánto dura la carrera&Oferta_educativa
 Ingenierías&Oferta_educativa
 Carreras&Oferta_educativa
 Licenciaturas&Oferta_educativa
-¿Hay carrera de ?&Oferta_educativa
+Hay carrera de&Oferta_educativa
 Materiales&Recursos_educativos
 Formularios&Recursos_educativos
 Material didáctico&Recursos_educativos

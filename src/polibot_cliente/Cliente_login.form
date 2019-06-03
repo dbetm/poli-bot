@@ -31,8 +31,12 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btnIniciar" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblreportError" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnIniciar" min="-2" pref="95" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="txtEmail" min="-2" pref="293" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -78,7 +82,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtEmail" pref="44" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnIniciar" min="-2" pref="48" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnIniciar" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="lblreportError" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -103,6 +110,9 @@
           <Color blue="b1" green="ae" red="bb" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtEmailFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -132,6 +142,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="imgLogo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblreportError">
     </Component>
   </SubComponents>
 </Form>

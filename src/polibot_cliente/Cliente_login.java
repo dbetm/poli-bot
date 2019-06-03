@@ -7,6 +7,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,7 +16,8 @@ import javax.swing.ImageIcon;
  * @author wolfteinter
  */
 public class Cliente_login extends javax.swing.JFrame {
-
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
+        Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     /**
      * Creates new form Cliente_login
      */
@@ -48,6 +51,7 @@ public class Cliente_login extends javax.swing.JFrame {
         btnIniciar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         imgLogo = new javax.swing.JLabel();
+        lblreportError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar sesión");
@@ -58,6 +62,11 @@ public class Cliente_login extends javax.swing.JFrame {
         jLabel1.setText("Nombre completo :");
 
         txtEmail.setBackground(new java.awt.Color(187, 174, 177));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained(evt);
+            }
+        });
 
         jLabel2.setText("E-mail :");
 
@@ -83,8 +92,11 @@ public class Cliente_login extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblreportError)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -117,7 +129,9 @@ public class Cliente_login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblreportError))
                 .addContainerGap())
         );
 
@@ -126,24 +140,38 @@ public class Cliente_login extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         if (!txtNombre.getText().isEmpty() && !txtEmail.getText().isEmpty()) {
-            try {
-                Registry reg = LocateRegistry.getRegistry("127.0.0.1",1099);
-                this.servidor = (Interface_servidor)reg.lookup("servidor");
-                Cliente cliente = new Cliente(txtNombre.getText(),txtEmail.getText());       
-                this.servidor.registrarActividad(cliente);
-                Cliente_chat cln = new Cliente_chat(cliente);          
-                cln.setVisible(true);
-                this.setVisible(false);
+            if(validateEmail(txtEmail.getText())) {
+                try {
+                    Registry reg = LocateRegistry.getRegistry("127.0.0.1", 1099);
+                    this.servidor = (Interface_servidor)reg.lookup("servidor");
+                    Cliente cliente = new Cliente(txtNombre.getText(),txtEmail.getText());       
+                    this.servidor.registrarActividad(cliente);
+                    Cliente_chat cln = new Cliente_chat(cliente);          
+                    cln.setVisible(true);
+                    this.setVisible(false);
+                }
+                catch (RemoteException ex) {
+                    ex.printStackTrace();
+                }
+                catch (NotBoundException ex) {
+                    ex.printStackTrace();
+                }
             }
-            catch (RemoteException ex) {
-                ex.printStackTrace();
+            else {
+                this.lblreportError.setText("¡E-mail no válido!");
             }
-            catch (NotBoundException ex) {
-                ex.printStackTrace();
-            } 
         }
     }//GEN-LAST:event_btnIniciarActionPerformed
 
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
+        this.lblreportError.setText("");
+    }//GEN-LAST:event_txtEmailFocusGained
+
+    public static boolean validateEmail(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+        return matcher.find();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -185,6 +213,7 @@ public class Cliente_login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblreportError;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
