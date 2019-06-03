@@ -40,7 +40,7 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDesconectar" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnEnviarMensaje" alignment="1" min="-2" pref="107" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -55,7 +55,7 @@
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="bienvenida" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDesconectar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Component id="jScrollPane2" pref="284" max="32767" attributes="0"/>
@@ -98,10 +98,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarArchivosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnDesconectar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Desconectar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDesconectarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="bienvenida">
       <Properties>

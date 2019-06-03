@@ -87,7 +87,7 @@ public class Cliente_chat extends javax.swing.JFrame {
         txtMensaje = new javax.swing.JTextField();
         btnEnviarMensaje = new javax.swing.JButton();
         btnMostrarArchivos = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnDesconectar = new javax.swing.JButton();
         bienvenida = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtLog = new javax.swing.JEditorPane();
@@ -118,7 +118,12 @@ public class Cliente_chat extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Desconectar");
+        btnDesconectar.setText("Desconectar");
+        btnDesconectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesconectarActionPerformed(evt);
+            }
+        });
 
         bienvenida.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         bienvenida.setForeground(java.awt.Color.white);
@@ -142,7 +147,7 @@ public class Cliente_chat extends javax.swing.JFrame {
                             .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnDesconectar, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnEnviarMensaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
@@ -152,7 +157,7 @@ public class Cliente_chat extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bienvenida)
-                    .addComponent(jButton3))
+                    .addComponent(btnDesconectar))
                 .addGap(13, 13, 13)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -188,6 +193,12 @@ public class Cliente_chat extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_btnMostrarArchivosActionPerformed
+
+    private void btnDesconectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconectarActionPerformed
+        Cliente_login login = new Cliente_login();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnDesconectarActionPerformed
 
     public String getLog() {
         return log;
@@ -248,9 +259,9 @@ public class Cliente_chat extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienvenida;
+    private javax.swing.JButton btnDesconectar;
     private javax.swing.JButton btnEnviarMensaje;
     private javax.swing.JButton btnMostrarArchivos;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JEditorPane txtLog;
     private javax.swing.JTextField txtMensaje;
