@@ -7,6 +7,8 @@ las posibles respuestas.
 Por ejemplo, si estamos delante de un chatbot para reservar entradas, habremos definido diferentes intenciones propias del negocio 
 como #ComprarEntrada, #ModificarReserva, #DevoluciónEntrada.
 
+Para probar su funcionamiento es necesario correr primero [Servidor.java](https://github.com/dbetm/poli-bot/blob/master/src/polibot_servidor/Servidor.java) y luego [Cliente_login.java](https://github.com/dbetm/poli-bot/blob/master/src/polibot_cliente/Cliente_login.java).
+
 ## ¿Qué puede hacer o qué funcionalidad tiene?
 1. El agente puede emitir respuestas en forma de texto, hipervínculos y archivos (pdf, jpg y png).
 2. Varios usuarios pueden estar conversando con el agente conversacional al mismo tiempo.
@@ -20,6 +22,18 @@ mantiene el formato separado por comas para abrirlo en hojas de cálculo.
 6. El usuario tiene la opción desconectarse cuando quiera.
 7. El usuario no puede recuperar mensajes de una sesión pasada, esto es porque el sistema no persisten las conversaciones.
 8. Hay una pequeña alerta sonora que se escucha cuando el usuario recibe un mensaje del agente conversacional.
+
+### Capturas del cliente del sistema funcionando
+
+![Login](capturas_funcionamiento/login.png)
+
+![Chat](capturas_funcionamiento/chateando.png)
+
+![Chat con foto](capturas_funcionamiento/chat_con_foto.png)
+
+
+
+
 
 
 
